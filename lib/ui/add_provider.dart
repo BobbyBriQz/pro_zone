@@ -8,7 +8,7 @@ class AddProvider extends StatefulWidget {
 class _AddProviderState extends State<AddProvider> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
     );
   }
 }
