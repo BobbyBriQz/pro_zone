@@ -32,7 +32,7 @@ class _ViewProviderState extends State<ViewProvider> {
         },
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
