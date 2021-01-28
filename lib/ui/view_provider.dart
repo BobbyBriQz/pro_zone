@@ -24,6 +24,13 @@ class _ViewProviderState extends State<ViewProvider> {
     final  Map<String, Object> receivedData = ModalRoute.of(context).settings.arguments;
     Provider provider = receivedData["provider"];
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        child: Icon(Icons.edit),
+        onPressed: (){
+          Navigator.pushNamed(context, "/updateProvider", arguments: {"provider":provider});
+        },
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,91 +78,99 @@ class _ViewProviderState extends State<ViewProvider> {
             height: 20,
           ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                8.0,0,8.0,0),
-            child: Text("About", style: TextStyle(
-                fontWeight: FontWeight.w700,
-              fontSize: 18, color: Colors.teal
-            ),),
-          ),
+          FittedBox(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      8.0,0,8.0,0),
+                  child: Text("About", style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                    fontSize: 18, color: Colors.teal
+                  ),),
+                ),
 
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("${provider.description == null? 'N/A': provider.description}", style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("${provider.description == null? 'N/A': provider.description}", style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                  ),),
+                ),
 
-          SizedBox(
-            height: 20,
-          ),
+                SizedBox(
+                  height: 20,
+                ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                8.0,0,8.0,0),
-            child: Text("Rating", style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 18, color: Colors.teal
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      8.0,0,8.0,0),
+                  child: Text("Rating", style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18, color: Colors.teal
+                  ),),
+                ),
 
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RatingBarIndicator(
-                rating: provider.rating == null?0: provider.rating.toDouble(),
-                itemCount: 5,
-                itemSize: 30,
-                itemBuilder: (context, x){
-                  return Icon(Icons.star, color: Colors.amber,);
-                }),
-          ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RatingBarIndicator(
+                      rating: provider.rating == null?0: provider.rating.toDouble(),
+                      itemCount: 5,
+                      itemSize: 30,
+                      itemBuilder: (context, x){
+                        return Icon(Icons.star, color: Colors.amber,);
+                      }),
+                ),
 
-          SizedBox(
-            height: 20,
-          ),
+                SizedBox(
+                  height: 20,
+                ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                8.0,0,8.0,0),
-            child: Text("Category", style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 18, color: Colors.teal
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      8.0,0,8.0,0),
+                  child: Text("Category", style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18, color: Colors.teal
+                  ),),
+                ),
 
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("${provider.providerType == null? 'N/A': provider.providerType.name}", style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("${provider.providerType == null? 'N/A': provider.providerType.name}", style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                  ),),
+                ),
 
-          SizedBox(
-            height: 20,
-          ),
+                SizedBox(
+                  height: 20,
+                ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-                8.0,0,8.0,0),
-            child: Text("Address", style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 18, color: Colors.teal
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                      8.0,0,8.0,0),
+                  child: Text("Address", style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18, color: Colors.teal
+                  ),),
+                ),
 
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("${provider.address == null? 'N/A': provider.address}, ${provider.state == null? ".":
-             '${provider.state.name} State.' }", style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18
-            ),),
-          ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("${provider.address == null? 'N/A': provider.address}, ${provider.state == null? ".":
+                   '${provider.state.name} State.' }", style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18
+                  ),),
+                ),
 
-          Spacer(),
+                //Spacer(),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -117,19 +116,7 @@ class _HomeState extends State<Home> {
                   ],
                   builder: (context, transition) {
                     return Container();
-                    /*ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Material(
-                        color: Colors.white,
-                        elevation: 4.0,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: Colors.accents.map((color) {
-                            return Container(height: 112, color: color);
-                          }).toList(),
-                        ),
-                      ),
-                    );*/
+
                   },
                 )),
           ),
@@ -252,8 +239,6 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
 
-                                    //Center(child: Text("Provider Type: Hospital$x")),
-
                                     Row(
                                       children: [
                                         Spacer(),
@@ -274,7 +259,6 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           );
-
                         },
                       );
                     }
